@@ -3,12 +3,15 @@ class BankAccount {
     constructor(){
 
     }
-    getBalance(acc_bal) {
+    getBalance(acc_bal,full_name) {
         this.acc_bal=acc_bal;
+        this.full_name = full_name;
         if(isNaN(acc_bal)){
             return 'Invalid Input'
         }else{
-            return acc_bal;
+            let out_put = {Name:full_name , Balance: acc_bal};
+            //console.log(out_put);
+            return out_put;
         }
        
     }
@@ -17,7 +20,7 @@ class BankAccount {
         this.acc_number=acc_number;
         this.lname = lname;
         this.fname = fname;
-        let acc = {name: lname + ' ' + fname , Balance: acc_bal, Accountnumber: acc_number}
+        let acc = {name: lname + ' ' + fname , Accountnumber: acc_number}
         //console.log(acc);
         return acc;
     }
@@ -25,9 +28,9 @@ class BankAccount {
     deposit(deposit_amount,acc_bal) {
         this.acc_bal = acc_bal;
         this.deposit_amount = deposit_amount;
-        new_bal = deposit_amount + acc_bal;
+        var new_bal = deposit_amount + acc_bal;
        // console.log(acc_bal);
-       return new_bal;
+       return 'Your new balance is ' + new_bal ;
     }
 
     withdraw(acc_bal, amount) {
@@ -40,7 +43,7 @@ class BankAccount {
         }
         else{
             //console.log('transaction successful')
-            return 'transaction successful';
+            return 'transaction successful Your new balance is '+ remaining;
         }
     }
 
